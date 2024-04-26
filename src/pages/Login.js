@@ -39,8 +39,6 @@ export default function Login() {
 		.then(res => res.json())
 		.then(data => {
 
-			console.log(data)
-
 		    if(data.access){
 		    	localStorage.setItem('token', data.access);
 
@@ -82,8 +80,6 @@ export default function Login() {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
-
 			setUser({
 				id: data.user._id,
 				isAdmin: data.user.isAdmin

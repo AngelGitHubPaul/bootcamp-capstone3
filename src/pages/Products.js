@@ -20,8 +20,6 @@ export default function Products() {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data)
-
 			if(typeof data.message !== "string") {
 				setProducts(data.products);
 			} else {

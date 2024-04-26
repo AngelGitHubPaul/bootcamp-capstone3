@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import EditProduct from './EditProduct';
+import ArchiveProduct from './ArchiveProduct';
 
 export default function AdminView({ productsData, fetchData }) {
 
@@ -18,15 +20,14 @@ export default function AdminView({ productsData, fetchData }) {
                     </td>
                     <td> 
                         <div>
-                            <p>update</p>
-                            <p>archive/activate</p>
+                            <EditProduct product={product._id} fetchData={fetchData}/>
+                            <ArchiveProduct product={product._id} isActive={product.isActive} fetchData={fetchData}/>
                         </div>
                     </td>    
                 </tr>
                 )
         })
 
-        console.log(productsArr)
         setProducts(productsArr)
 
     }, [productsData])
