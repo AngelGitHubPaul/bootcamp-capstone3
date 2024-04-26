@@ -6,6 +6,8 @@ import AppNavBar from './components/AppNavBar';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Products from './pages/Products';
+import AddProduct from './pages/AddProduct';
 import Logout from './pages/Logout';
 import Error from './pages/Error';
 import {UserProvider} from './UserContext'
@@ -53,6 +55,8 @@ function App() {
                     <Route path="/" element={<Home />}/>
                     <Route path="/register" element={<Register />}/>
                     <Route path="/login" element={<Login />}/>
+                    <Route path="/products" element={<Products />}/>
+                    <Route path="/addProduct" element={<AddProduct />} />
                     <Route path="/logout" element={<Logout />}/>
                     <Route path="*" element={<Error />} />
                 </Routes>
