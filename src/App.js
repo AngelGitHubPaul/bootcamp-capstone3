@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Products from './pages/Products';
+import ProductView from './pages/ProductView';
 import AddProduct from './pages/AddProduct';
 import Logout from './pages/Logout';
 import Error from './pages/Error';
@@ -29,7 +30,6 @@ function App() {
       })
       .then(res => res.json())
       .then(data => {
-          console.log(data);
           if(data.user) {
               setUser({
                   id: data.user._id,
@@ -56,6 +56,7 @@ function App() {
                     <Route path="/register" element={<Register />}/>
                     <Route path="/login" element={<Login />}/>
                     <Route path="/products" element={<Products />}/>
+                    <Route path="/product/:productId" element={<ProductView />}/>
                     <Route path="/addProduct" element={<AddProduct />} />
                     <Route path="/logout" element={<Logout />}/>
                     <Route path="*" element={<Error />} />
