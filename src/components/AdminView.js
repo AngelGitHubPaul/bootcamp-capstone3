@@ -47,9 +47,9 @@ export default function AdminView({ productsData, fetchData }) {
                     <tr className="text-center">
                         <th className="text-white bg-dark" colSpan="2">Name</th>
                         <th className="text-white bg-dark" colSpan="3">Description</th>
-                        <th className="text-white bg-dark">Price</th>
-                        <th className="text-white bg-dark">Availability</th>
-                        <th className="text-white bg-dark">Actions</th>
+                        <th className="text-white bg-dark" colSpan="2">Price</th>
+                        <th className="text-white bg-dark" colSpan="2">Availability</th>
+                        <th className="text-white bg-dark" colSpan="2">Actions</th>
                     </tr>
                 </thead>
 
