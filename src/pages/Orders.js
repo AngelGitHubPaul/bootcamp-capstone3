@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from 'react';
 import UserContext from '../UserContext';
-import UserView from '../components/UserView';
-import AdminView from '../components/AdminView';
+import UserOrders from '../components/UserOrders';
+import AllOrders from '../components/AllOrders';
 
 export default function Products() {
 
 	const { user } = useContext(UserContext);
-	const [ order, setOrders ] = useState([]); 
+	const [ orders, setOrders ] = useState([]); 
 
 	const fetchData = () => {
 		let fetchUrl = user.isAdmin === true 
