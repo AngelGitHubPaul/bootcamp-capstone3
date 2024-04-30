@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Products from './pages/Products';
 import ProductView from './pages/ProductView';
 import AddProduct from './pages/AddProduct';
+import Orders from './pages/Orders';
 import Logout from './pages/Logout';
 import Error from './pages/Error';
 import {UserProvider} from './UserContext'
@@ -58,6 +59,7 @@ function App() {
                     <Route path="/products" element={<Products />}/>
                     <Route path="/product/:productId" element={<ProductView />}/>
                     <Route path="/addProduct" element={<AddProduct />} />
+                    <Route path="/orders" element={<Orders />}/>
                     <Route path="/logout" element={<Logout />}/>
                     <Route path="*" element={<Error />} />
                 </Routes>
