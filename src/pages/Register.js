@@ -17,14 +17,6 @@ export default function Register() {
 	const [ isActive , setIsActive ] = useState(false);
 	const [ userRegistered , setUserRegistered ] = useState(false);
 	
-
-	console.log(firstName);
-	console.log(lastName);
-	console.log(email);
-	console.log(mobileNo);
-	console.log(password);
-	console.log(confirmPassword);
-
 	useEffect(() => {
 		if((firstName !== "" && lastName !== "" && email !== "" && mobileNo !== "" && password !== "" && confirmPassword !== "") && (password === confirmPassword) && (mobileNo.length === 11)) {
 
