@@ -18,6 +18,8 @@ export default function AppNavBar() {
 		        	<Nav className="ms-auto">
 		        		<Nav.Link as={NavLink} to="/">Home</Nav.Link>
 		        		<Nav.Link as={NavLink} to="/products">Products</Nav.Link>
+		        		<Nav.Link as={NavLink} to="/orders">Products</Nav.Link>
+		        		
 		        		
 				        {(user.id !== null && !user.isAdmin)
 				        	?
