@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Card, Row, Col, Container } from 'react-bootstrap';
+import { Row, Container } from 'react-bootstrap';
 import ProductCard from "./ProductCard"
 
 
@@ -10,8 +10,6 @@ export default function UserView({ productsData }) {
 
     useEffect(() => {
         const productArr = productsData.map(product => {
-            
-            console.log(product)
          
             if(product.isActive === true) {
                 return (

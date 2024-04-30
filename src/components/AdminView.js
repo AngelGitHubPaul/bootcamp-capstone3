@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Table, Button } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import EditProduct from './EditProduct';
 import ArchiveProduct from './ArchiveProduct';
@@ -39,7 +39,7 @@ export default function AdminView({ productsData, fetchData }) {
             
             <div className="text-center m-3">
                 <Link className="btn btn-primary mx-2" to={`/addProduct`}>Add New Product</Link>
-                <Button variant="success" className="mx-2">Show User orders</Button>
+                <Link className="btn btn-danger mx-2" to={`/orders`}>Show User orders</Link>
             </div>
 
             <Table striped bordered hover responsive>
