@@ -24,3 +24,6 @@
 - Order history page(admin)
 
 ## Features by Lovely Sendaydiego
+
+- Retrieve all active products
+- Order history page (user)
