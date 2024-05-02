@@ -14,11 +14,11 @@ export default function AdminView({ productsData, fetchData }) {
                 <tr key={product._id}>
                     <td className="text-primary" colSpan="2">{product.name}</td>
                     <td colSpan="3">{product.description}</td>
-                    <td>{product.price}</td>
-                    <td className={product.isActive ? "text-success" : "text-danger"}>
+                    <td colSpan="2">{product.price}</td>
+                    <td colSpan="2" className={product.isActive ? "text-success" : "text-danger"}>
                         {product.isActive ? "Available" : "Unavailable"}
                     </td>
-                    <td> 
+                    <td colSpan="2"> 
                         <div>
                             <EditProduct product={product._id} fetchData={fetchData}/>
                             <ArchiveProduct product={product._id} isActive={product.isActive} fetchData={fetchData}/>
@@ -42,7 +42,7 @@ export default function AdminView({ productsData, fetchData }) {
                 <Link className="btn btn-danger mx-2" to={`/orders`}>Show User orders</Link>
             </div>
 
-            <Table striped bordered hover responsive>
+            <Table striped bordered hover responsive className="mx-3">
                 <thead>
                     <tr className="text-center">
                         <th className="text-white bg-dark" colSpan="2">Name</th>

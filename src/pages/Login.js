@@ -95,7 +95,7 @@ export default function Login() {
     	?
     	<Navigate to="/"/>
     	:
-    	<Form onSubmit={(e) => authenticate(e)}>
+    	<Form onSubmit={(e) => authenticate(e)} className="mx-4">
     	    <h1 className="my-5 text-center">Login</h1>
     	    <Form.Group className="mb-3" controlId="userEmail">
     	        <Form.Label>Email address</Form.Label>

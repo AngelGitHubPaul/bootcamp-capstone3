@@ -7,31 +7,54 @@ export default function AllOrders({ ordersData, fetchData }) {
     const [ orders, setOrders ] = useState([])
 
     useEffect(() => {
+      console.log(ordersData)
       const fetchProducts = async () => {
+        let token = localStorage.getItem('token');
         const ordersArr = await Promise.all(
           ordersData.map(async (order) => {
+            console.log(order.userId)
+            const orderUserResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/find-user`, {
+              method: 'POST',
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+              },
+              body: JSON.stringify({
+                id: order.userId,
+              })
+            });
+
+            if (!orderUserResponse.ok) {
+              console.error('Failed to fetch user data');
+              return null;
+            }
+
+            const orderUserData = await orderUserResponse.json();
+            const orderUserEmail = orderUserData?.user?.email || 'Unknown User';
+
             const productsOrderedArr = await Promise.all(
               order.productsOrdered.map(async (product) => {
                 try {
-                    const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${product.productId}`);
-                    const data = await response.json();
-                    const productName = data.product.name;
-                    return (
-                      <ul key={product.productId}>
-                        <li>
-                          {productName} - Quantity: {product.quantity}
-                        </li>
-                      </ul>
-                    );
-                  } catch (error) {
-                    console.error('Error fetching product:', error);
-                    return null;
-                  }
-                })
-              );
+                  const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/products/${product.productId}`);
+                  const data = await response.json();
+                  const productName = data.product.name;
+                  return (
+                    <ul key={product.productId}>
+                      <li>
+                        {productName} - Quantity: {product.quantity}
+                      </li>
+                    </ul>
+                  );
+                } catch (error) {
+                  console.error('Error fetching product:', error);
+                  return null;
+                }
+              })
+            );
+
             return (
               <Accordion.Item key={order._id} eventKey={order._id}>
-                <Accordion.Header>Orders for User: <strong className="text-warning">{order.userId}</strong></Accordion.Header>
+                <Accordion.Header>Orders for User: <strong className="text-warning">{orderUserEmail}</strong></Accordion.Header>
                 <Accordion.Body>
                   <p>Purchased on: {order.orderedOn.slice(0, 10)}</p>
                   {productsOrderedArr}
@@ -41,11 +64,14 @@ export default function AllOrders({ ordersData, fetchData }) {
             );
           })
         );
-        setOrders(ordersArr);
+
+        setOrders(ordersArr.filter(Boolean)); 
       };
+
 
       fetchProducts();
     }, [ordersData]);
+
 
 
     return(
@@ -57,7 +83,7 @@ export default function AllOrders({ ordersData, fetchData }) {
                 <Link className="btn btn-danger mx-2" to={`/products`}>Show Product Details</Link>
             </div>
 
-            <Accordion defaultActiveKey="0">
+            <Accordion defaultActiveKey="0" className="mx-3">
                   {orders}
             </Accordion>
         </>
