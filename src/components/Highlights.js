@@ -4,7 +4,7 @@ import { Row, Col, Card } from 'react-bootstrap';
 export default function Highlights() {
 	return (
 		<Row className="my-5 mx-4">
-			<Col xs={12} md={4}>
+			<Col xs={12} md={4} className="my-2">
 				<Card className="cardHighlight p-3" >
 				  <Card.Body>
 				    <Card.Title className="text-center">
@@ -17,7 +17,7 @@ export default function Highlights() {
 				</Card>
 			</Col>
 
-			<Col xs={12} md={4}>
+			<Col xs={12} md={4} className="my-2">
 				<Card className="cardHighlight p-3" >
 				  <Card.Body>
 				    <Card.Title className="text-center">
@@ -30,7 +30,7 @@ export default function Highlights() {
 				</Card>
 			</Col>
 
-			<Col xs={12} md={4}>
+			<Col xs={12} md={4} className="my-2">
 				<Card className="cardHighlight p-3" >
 				  <Card.Body>
 				    <Card.Title className="text-center">

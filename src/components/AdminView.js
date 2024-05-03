@@ -30,7 +30,7 @@ export default function AdminView({ productsData, fetchData }) {
 
         setProducts(productsArr)
 
-    }, [productsData])
+    }, [productsData, fetchData])
 
 
     return(
@@ -38,11 +38,11 @@ export default function AdminView({ productsData, fetchData }) {
             <h1 className="text-center my-3"> Admin Dashboard</h1>
             
             <div className="text-center m-3">
-                <Link className="btn btn-primary mx-2" to={`/addProduct`}>Add New Product</Link>
-                <Link className="btn btn-danger mx-2" to={`/orders`}>Show User orders</Link>
+                <Link className="btn btn-primary m-2" to={`/addProduct`}>Add New Product</Link>
+                <Link className="btn btn-danger m-2" to={`/orders`}>Show User orders</Link>
             </div>
 
-            <Table striped bordered hover responsive className="mx-3">
+            <Table striped bordered hover responsive className="mx-3 my-2">
                 <thead>
                     <tr className="text-center">
                         <th className="text-white bg-dark" colSpan="2">Name</th>

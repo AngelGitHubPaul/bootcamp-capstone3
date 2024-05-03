@@ -12,6 +12,7 @@ import AddProduct from './pages/AddProduct';
 import Orders from './pages/Orders';
 import Logout from './pages/Logout';
 import Error from './pages/Error';
+import AppFooter from './components/AppFooter'
 import {UserProvider} from './UserContext'
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
                     <Route path="/logout" element={<Logout />}/>
                     <Route path="*" element={<Error />} />
                 </Routes>
+                <AppFooter />
             </Container>
         </Router>
     </UserProvider>

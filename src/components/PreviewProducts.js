@@ -9,7 +9,7 @@ export default function PreviewPropducts(props) {
 
 	return(
 		<Col xs={12} md={breakPoint}>
-			<Card className="cardHighlight mx-2">
+			<Card className="cardHighlight m-2">
 			    <Card.Body>
 			        <Card.Title className='text-center'>
 			        	<Link to={`/product/${_id}`}>{name}</Link>

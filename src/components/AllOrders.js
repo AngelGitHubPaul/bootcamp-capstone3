@@ -7,12 +7,10 @@ export default function AllOrders({ ordersData, fetchData }) {
     const [ orders, setOrders ] = useState([])
 
     useEffect(() => {
-      console.log(ordersData)
       const fetchProducts = async () => {
         let token = localStorage.getItem('token');
         const ordersArr = await Promise.all(
           ordersData.map(async (order) => {
-            console.log(order.userId)
             const orderUserResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/find-user`, {
               method: 'POST',
               headers: {
@@ -54,11 +52,11 @@ export default function AllOrders({ ordersData, fetchData }) {
 
             return (
               <Accordion.Item key={order._id} eventKey={order._id}>
-                <Accordion.Header>Orders for User: <strong className="text-warning">{orderUserEmail}</strong></Accordion.Header>
+                <Accordion.Header>Orders for User: <strong className="text-primary">{orderUserEmail}</strong></Accordion.Header>
                 <Accordion.Body>
                   <p>Purchased on: {order.orderedOn.slice(0, 10)}</p>
                   {productsOrderedArr}
-                  <p>Total: <strong className="text-warning">{order.totalPrice}</strong></p>
+                  <p>Total: <strong className="text-success">₱ {order.totalPrice}</strong></p>
                 </Accordion.Body>
               </Accordion.Item>
             );
@@ -79,11 +77,11 @@ export default function AllOrders({ ordersData, fetchData }) {
             <h1 className="text-center my-3"> Admin Dashboard</h1>
             
             <div className="text-center m-3">
-                <Link className="btn btn-primary mx-2" to={`/addProduct`}>Add New Product</Link>
-                <Link className="btn btn-danger mx-2" to={`/products`}>Show Product Details</Link>
+                <Link className="btn btn-primary m-2" to={`/addProduct`}>Add New Product</Link>
+                <Link className="btn btn-danger m-2" to={`/products`}>Show Product Details</Link>
             </div>
 
-            <Accordion defaultActiveKey="0" className="mx-3">
+            <Accordion defaultActiveKey="0" className="mx-3 my-2">
                   {orders}
             </Accordion>
         </>
